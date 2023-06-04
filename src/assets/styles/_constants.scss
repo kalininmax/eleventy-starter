@@ -4,11 +4,6 @@ $default-transition-duration: 0.3s;
 $fast-transition-duration: 0.15s;
 $default-transition-function: ease-out;
 
-$desktop-lg: 1920px;
-$desktop-md: 1440px;
-$mobile-lg: 640px;
-$mobile-sm: 320px;
-
 html {
 	--white: #fff;
 	--black: #000;
@@ -17,10 +12,10 @@ html {
 
 	--default-bg-color: var(--white);
 
-	--container-max-width: #{rem(1400)};
+	--container-max-width: #{rem(1920)};
 	--container-padding: #{rem(40)};
 
-	@media (width < $mobile-lg) {
+	@media (width < 640px) {
 		--container-padding: #{rem(16)};
 	}
 }
