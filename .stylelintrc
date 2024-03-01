@@ -22,13 +22,6 @@ rules:
     - always
     - except:
         - inside-block
-  at-rule-empty-line-before:
-    - always
-    - ignore:
-        - after-comment
-        - first-nested
-        - blockless-after-same-name-blockless
-    - except:
   selector-pseudo-element-colon-notation: double
   custom-property-empty-line-before: null
   selector-no-vendor-prefix: null

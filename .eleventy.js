@@ -1,7 +1,11 @@
 const yaml = require('js-yaml');
+const markdownIt = require('markdown-it');
 
 const shortcodes = require('./src/shortcodes');
 const PATHS = require('./paths');
+const md = new markdownIt({
+	html: true,
+});
 
 /** @param {import("@11ty/eleventy").UserConfig} config */
 module.exports = (config) => {
@@ -12,6 +16,11 @@ module.exports = (config) => {
 	);
 
 	config.addFilter('debug', (...args) => console.log(...args));
+	config.addFilter('url', (str) => process.env.SITE_URL + str);
+	config.addFilter('stringify', (data) => JSON.stringify(data, null, '\t'));
+	config.addFilter('markdown', (content) => {
+		return md.render(content);
+	});
 
 	config.addDataExtension('yml', (content) => yaml.load(content));
 

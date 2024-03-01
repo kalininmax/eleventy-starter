@@ -1,6 +1,7 @@
 {
 	"Exclude": [
 		"build-production",
+		"assets",
 		".prettierrc",
 		".stylelintrc"
 	],
