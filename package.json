@@ -8,7 +8,6 @@
 		"clean": "rimraf build build-production build-production.zip",
 		"dev:clean": "rimraf build",
 		"dev:eleventy": "eleventy --serve --quiet --incremental",
-		"dev:ts": "tsc --watch",
 		"build:clean": "rimraf build-production",
 		"build:eleventy": "eleventy",
 		"test": "npm-run-all editorconfig css js",
