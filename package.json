@@ -10,11 +10,12 @@
 		"dev:eleventy": "eleventy --serve --quiet --incremental",
 		"build:clean": "rimraf build-production",
 		"build:eleventy": "eleventy",
-		"test": "npm-run-all editorconfig css js",
+		"test": "npm-run-all editorconfig css js type-check",
 		"editorconfig": "editorconfig-checker",
 		"html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --filterfile .vnurc build/**/*.html",
 		"css": "stylelint \"src/**/*.scss\" --fix",
 		"js": "eslint src/**/*.js",
+		"type-check": "tsc --noEmit",
 		"prettier": "npx prettier --write .",
 		"format": "npm-run-all css prettier",
 		"prepare": "husky install"
