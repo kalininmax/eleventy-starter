@@ -15,7 +15,7 @@
 		"html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterfile .vnurc build-production/**/*.html",
 		"css": "stylelint \"src/**/*.scss\" --fix",
 		"js": "eslint src/**/*.js",
-		"type-check": "tsc --noEmit",
+		"type-check": "tsc",
 		"prettier": "npx prettier --write .",
 		"format": "npm-run-all css prettier",
 		"prepare": "husky install"
