@@ -1,20 +1,7 @@
 const esbuild = require('esbuild');
 const PATHS = require('../../paths');
-const { exec } = require('child_process');
 
 const isProd = process.env.ELEVENTY_ENV === 'production';
-
-async function execCmd(command) {
-	return new Promise((resolve, reject) => {
-		exec(command, (error, stdout, stderr) => {
-			if (error) {
-				reject([error, stdout, stderr]);
-				return;
-			}
-			resolve(stdout);
-		});
-	});
-}
 
 /** @param {import("@11ty/eleventy").UserConfig} config */
 module.exports = async (config) => {
@@ -23,7 +10,7 @@ module.exports = async (config) => {
 		outputFileExtension: 'js',
 		compile: async (file, path) => async () => {
 			await esbuild.build({
-				target: 'es2020',
+				target: 'es2022',
 				entryPoints: ['./src/assets/scripts/index.js'],
 				entryNames: '[dir]/bundle',
 				minify: isProd,
@@ -34,20 +21,5 @@ module.exports = async (config) => {
 				outdir: PATHS.build.root,
 			});
 		},
-	});
-
-	config.on('eleventy.before', async ({ dir, runMode, outputMode }) => {
-		await execCmd('npx tsc --noEmit').then(
-			() => {},
-			([_, stdout, stderr]) => {
-				if (stderr.length > 0) {
-					console.error(stderr);
-				}
-
-				if (stdout.length > 0) {
-					console.error(stdout);
-				}
-			},
-		);
 	});
 };

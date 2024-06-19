@@ -1,6 +1,5 @@
 interface Window {
 	ProjectApp: ProjectApp;
-
 	environmentObject: {
 		platform: string;
 		os: string;
