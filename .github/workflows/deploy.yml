@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: npm install # Или другая команда для установки зависимостей
+        run: npm install
 
       - name: Build
-        run: npm run build # Или другая команда для запуска сборки
+        run: npm run build
 
       - name: Deploy
         uses: easingthemes/ssh-deploy@main
